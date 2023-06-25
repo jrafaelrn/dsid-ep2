@@ -19,7 +19,7 @@ public class DNS {
         
         // Sorteia uma agência aleatoriamente
         int index = (int) (Math.random() * this.agencies.size());
-        return agencies.get(index);
+        return this.agencies.get(index);
 
     }        
     

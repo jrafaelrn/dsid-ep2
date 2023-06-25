@@ -16,7 +16,7 @@ public class Client {
     
     private static void inicializar_objetos() throws RemoteException{
 
-        System.out.println("Initializing objects...");
+        System.out.println("\nInitializing objects...");
     
         Agency agency1 = new Agency("localhost", 1234);
         Agency agency2 = new Agency("localhost", 1235);
@@ -25,7 +25,7 @@ public class Client {
         dns.add_agency(agency1);
         dns.add_agency(agency2);
 
-        System.out.println("Objects initialized!");
+        System.out.println("...Objects initialized!\n");
 
     }
 
@@ -36,22 +36,22 @@ public class Client {
 
         System.out.println("Digite o número de agentes que deseja executar: ");
         int n = sc.nextInt();
-        int counter = 1;
 
         for(int i = 0; i < n; i++){
-            System.out.println("\nExecutando agente " + counter + "...");
-            executar_agente();
-            counter++;
+            System.out.println("\nExecutando agente " + (i+1) + "...");
+            executar_agente("Agent" + (i+1));
         }
+
+        sc.close();
 
     }
 
 
 
-    private static void executar_agente() {
+    private static void executar_agente(String name) {
 
         // Cria um agente
-        Agent agent = new Agent();
+        Agent agent = new Agent(name);
         
         // Sorteia uma agência aleatoriamente
         Agency agency = dns.get_random_agency();
