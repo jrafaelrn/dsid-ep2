@@ -41,7 +41,7 @@ class Agent implements Runnable{
     @Override
     public void run() {
         
-        System.out.println("\tRunning Agent...");
+        System.out.println("\n\tRunning Agent on thread: " + Thread.currentThread().getName() + "...");
         
         String actual_addres = System.getProperty("user.dir");
 
