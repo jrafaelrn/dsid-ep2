@@ -38,7 +38,6 @@ public class Client {
         int n = sc.nextInt();
 
         for(int i = 0; i < n; i++){
-            System.out.println("\nExecutando agente " + (i+1) + "...");
             executar_agente("Agent" + (i+1));
         }
 

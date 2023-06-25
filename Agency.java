@@ -33,7 +33,7 @@ public class Agency {
 
     public void run_agent(Agent agent){
 
-        System.out.println("Running Agent on server: " + this.total_address + "...");
+        System.out.println("Running " + agent.name + " on server: " + this.total_address + "...");
 
         // Cria uma thread para o agente
         Thread thread = new Thread(agent);
