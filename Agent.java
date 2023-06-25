@@ -1,7 +1,18 @@
-class Agent{
+class Agent implements Runnable{
 
-    public static void main(String[] args) {
-        System.out.println("Starting Agent...");
+
+    public void compilar() {
+        
+        System.out.println("Compilando...");
+
+    }
+
+
+    @Override
+    public void run() {
+
+        System.out.println("Running Agent...");
+        
     }
 
 }
