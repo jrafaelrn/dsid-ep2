@@ -6,7 +6,7 @@ public class DNS {
     
     public DNS() {
         System.out.println("Starting DNS...");
-        ArrayList<Agency> this.agencies = new ArrayList<Agency>();
+        this.agencies = new ArrayList<Agency>();
     }
 
 
@@ -19,8 +19,8 @@ public class DNS {
         
         // Sorteia uma agência aleatoriamente
         int index = (int) (Math.random() * this.agencies.size());
-        return this.agencies.get(index);
-        
+        return agencies.get(index);
+
     }        
     
 

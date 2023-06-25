@@ -22,6 +22,8 @@ public class Agency {
 
         //registry.rebind(this.total_address, this);
 
+        System.out.println("Agency created on server: " + this.total_address + "...");
+
     }
 
     public void add_agent(Agent agent) {
@@ -30,6 +32,8 @@ public class Agency {
     
 
     public void run_agent(Agent agent){
+
+        System.out.println("Running Agent on server: " + this.total_address + "...");
 
         // Cria uma thread para o agente
         Thread thread = new Thread(agent);

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Client",
+            "request": "launch",
+            "mainClass": "Client",
+            "projectName": "dsid-ep2_b1983ac8"
+        },
+        {
+            "type": "java",
             "name": "DNS",
             "request": "launch",
             "mainClass": "DNS",
