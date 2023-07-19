@@ -28,12 +28,12 @@ public class Client {
         for(int i = 0; i < n; i++){
             criar_agente("Agent" + (i+1));
         }
-
-
+    
         
         while (true) {
             
             Thread.sleep(1000);
+            dns.print_status();
             System.out.println("\nDigite o ID da agência que deseja convidar para a festa: (ou X para sair)");
             String opcao = sc.next().toUpperCase();
 

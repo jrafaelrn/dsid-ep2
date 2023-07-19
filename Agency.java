@@ -11,7 +11,7 @@ public class Agency {
     private String address;
     private int port;
     public int id;
-    private ArrayList<Agent> agents = new ArrayList<Agent>();
+    public ArrayList<Agent> agents = new ArrayList<Agent>();
 
 
     public Agency(String address, int port, int id) throws RemoteException {
@@ -82,6 +82,11 @@ public class Agency {
         // Inicia a thread
         thread.start();
         
+    }
+
+
+    public void print_status(){
+        System.out.println("Agência " + this.id + ": " + this.agents.size() + " agentes - " + this.agents);
     }
 
     

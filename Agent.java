@@ -11,4 +11,10 @@ class Agent implements Runnable{
         System.out.println("\t" + this.name + " chegou !!!");
     }
 
+
+    @Override
+    public String toString(){
+        return this.name;
+    }
+
 }

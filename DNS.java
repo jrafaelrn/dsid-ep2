@@ -46,4 +46,16 @@ public class DNS {
     }        
     
 
+    public void print_status(){
+
+        System.out.println("\n----- Status da rede -----");
+
+        for(Agency agency : this.agencies){
+            agency.print_status();
+        }
+
+        System.out.println("---------------------------\n");
+
+    }
+
 }
