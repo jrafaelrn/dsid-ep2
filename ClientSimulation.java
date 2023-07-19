@@ -4,7 +4,7 @@ public class ClientSimulation {
 
     private static DNS dns;
 
-    public static void main(String[] args) throws RemoteException {
+    public static void main(String[] args) throws RemoteException, InterruptedException {
         
         System.out.println("Starting Client...");
 
@@ -31,33 +31,26 @@ public class ClientSimulation {
         agency3.add_agent(agent4);
         agency3.add_agent(agent5);
 
+        Thread.sleep(1000);
+        dns.print_status();
+
         // Festa será na agência 1
-        invite_to_party(agency1, agent1);
-        invite_to_party(agency1, agent2);
-        invite_to_party(agency1, agent3);
-        invite_to_party(agency1, agent4);
-        invite_to_party(agency1, agent5);
+        agency2.send_all_agents(agency1);
+        agency3.send_all_agents(agency1);
+
+        Thread.sleep(1000);
+        dns.print_status();
 
         // Festa será na agência 3
-        invite_to_party(agency3, agent1);
-        invite_to_party(agency3, agent2);
-        invite_to_party(agency3, agent3);
-        invite_to_party(agency3, agent4);
-        invite_to_party(agency3, agent5);
+        agency1.send_all_agents(agency3);
+        agency2.send_all_agents(agency3);
+
+        Thread.sleep(1000);
+        dns.print_status();
 
     }
 
 
-    private static void invite_to_party(Agency agency, Agent agent){
 
-        try {
-            Agency actual_agency = dns.get_agency_by_agent(agent);
-            actual_agency.send_agent(agent, agency);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-
-
-    }
     
 }
