@@ -18,12 +18,10 @@ public class Client {
 
         System.out.println("\nInitializing objects...");
     
-        Agency agency1 = new Agency("localhost", 1234);
-        Agency agency2 = new Agency("localhost", 1235);
+        Agency agency_waiting = new Agency("localhost", 1234);
     
         dns = new DNS();
-        dns.add_agency(agency1);
-        dns.add_agency(agency2);
+        dns.add_agency(agency_waiting);
 
         System.out.println("...Objects initialized!\n");
 
@@ -34,7 +32,7 @@ public class Client {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Digite o número de agentes que deseja executar: ");
+        System.out.println("Digite o número de alunos que deseja simular: ");
         int n = sc.nextInt();
 
         for(int i = 0; i < n; i++){
@@ -52,10 +50,8 @@ public class Client {
         // Cria um agente
         Agent agent = new Agent(name);
         
-        // Sorteia uma agência aleatoriamente
-        Agency agency = dns.get_random_agency();
-
-        agency.run_agent(agent);
+        // Coloca o aluno na sala de espera
+        Agency agency = dns.
 
     }
     

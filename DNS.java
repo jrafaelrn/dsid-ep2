@@ -15,6 +15,17 @@ public class DNS {
     }
 
 
+    public Agency get_agency(Agent agent){
+        
+        for(Agency agency : this.agencies){
+            if(agency.get_agent(agent) != null){
+                return agency;
+            }
+        }
+        return null;
+    }
+
+
     public Agency get_random_agency() {
         
         // Sorteia uma agência aleatoriamente
