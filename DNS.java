@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class DNS {
 
-    private ArrayList<Agency> agencies;
+    public ArrayList<Agency> agencies;
     
     public DNS() {
         System.out.println("Starting DNS...");
@@ -15,10 +15,21 @@ public class DNS {
     }
 
 
-    public Agency get_agency(Agent agent){
+    public Agency get_agency_by_agent(Agent agent){
         
         for(Agency agency : this.agencies){
             if(agency.get_agent(agent) != null){
+                return agency;
+            }
+        }
+        return null;
+    }
+
+
+    public Agency get_agency_by_id(int id){
+        
+        for(Agency agency : this.agencies){
+            if(agency.id == id){
                 return agency;
             }
         }

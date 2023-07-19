@@ -10,13 +10,15 @@ public class Agency {
     private String total_address;
     private String address;
     private int port;
+    public int id;
     private ArrayList<Agent> agents = new ArrayList<Agent>();
 
 
-    public Agency(String address, int port) throws RemoteException {
+    public Agency(String address, int port, int id) throws RemoteException {
         
         this.address = address;
         this.port = port;        
+        this.id = id;
         this.registry = LocateRegistry.createRegistry(port);
 
         this.total_address = "rmi://" + this.address + ":" + this.port + "/agency";
@@ -45,6 +47,19 @@ public class Agency {
     }
 
 
+    public void send_all_agents(Agency agency) throws RemoteException {
+
+        for (Agent agent : this.agents) {
+
+            // Envia o agente para outra agência
+            this.send_agent(agent, agency);
+        }
+
+        this.agents.clear();
+
+    }
+
+
     public void send_agent(Agent agent, Agency agency) throws RemoteException {
 
         if(this.toString() == agency.toString()){
@@ -52,9 +67,6 @@ public class Agency {
             return;
         }
         
-        // Remove o agente da lista de agentes da agência
-        this.agents.remove(agent);
-
         // Envia o agente para a agência
         agency.add_agent(agent);
 
@@ -63,8 +75,6 @@ public class Agency {
     
 
     public void run_agent(Agent agent){
-
-        System.out.println("Running " + agent.name + " on server: " + this.total_address + "...");
 
         // Cria uma thread para o agente
         Thread thread = new Thread(agent);
@@ -75,36 +85,7 @@ public class Agency {
     }
 
     
-    public void compilar(String actual_addres) {
-        
-        String command = "javac " + actual_addres + "/Agent.java";
-        System.out.println("\tCompilando " + command + "...");
-
-        try {
-            Process process = Runtime.getRuntime().exec(command);
-            process.waitFor();
-        } catch (Exception e) {
-            System.out.println("Erro ao compilar o agente!");
-        }
-
-        System.out.println("\t...Compilado com sucesso!");
-
-    }
-
-
-    public void executar(String actual_addres){
-
-        String command = "java " + actual_addres + "/Agent";
-        System.out.println("\tExecutando agente [" + this.name + "]... Comando: " + command);
-        
-        try {
-            Process process = Runtime.getRuntime().exec(command);
-            process.waitFor();
-        } catch (Exception e) {
-            System.out.println("Erro ao executar o agente!");
-        }
-    }
-
+    @Override
     public String toString(){
         return this.total_address;
     }

@@ -8,7 +8,7 @@ class Agent implements Runnable{
 
     @Override
     public void run() {        
-        System.out.println("\n\t\t" + this.name + " chegou na festa !!!\n");
+        System.out.println("\t" + this.name + " chegou !!!");
     }
 
 }
